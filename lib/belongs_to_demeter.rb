@@ -7,6 +7,7 @@ module BelongsToDemeter
   module ClassMethods
     def belongs_to(*args)
       belongs_to_demeter << args.first.to_sym
+      super
     end
 
     def belongs_to_demeter

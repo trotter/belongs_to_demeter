@@ -27,8 +27,8 @@ class BelongsToDemeterTest < Test::Unit::TestCase
   end
 
   def test_calls_belongs_to_attribute
-    @c.send(:define_method, :user) { User.new }
     @c.belongs_to :user
+    @c.send(:define_method, :user) { User.new }
     assert_equal User.new.login, @c.new.user_login
 
     @c.send(:define_method, :user) { nil }
