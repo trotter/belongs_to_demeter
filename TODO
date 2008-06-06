@@ -1,0 +1,4 @@
+# Use rspec
+# Use real mocking framework
+# Define methods instead of using method_missing by checking column names of
+#     associations
