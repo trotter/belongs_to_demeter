@@ -24,7 +24,10 @@ module BelongsToDemeter
 
     def method_missing(meth, *args, &block)
       for pre in self.class.belongs_to_demeter
-        if meth.to_s =~ /^#{pre}_/
+        if meth.to_s =~ /^#{pre}_(.*)=$/
+          obj = pre.to_s.classify.constantize.send("find_by_#{$1}", args.first)
+          return send("#{pre}=", obj)
+        elsif meth.to_s =~ /^#{pre}_/
           obj = self.send(pre)
           return obj ? obj.send($') : nil
         end
