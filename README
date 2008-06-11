@@ -1,13 +1,18 @@
 BelongsToDemeter
 ================
 
-Introduction goes here.
-
+BelongsToDemeter is a Rails plugin that lets you access attributes of a
+belongs_to association through methods on the base class. It's poor code, but a
+fun idea.
 
 Example
 =======
 
-Example goes here.
+# The next line will do a User.find_by_login('bob') and assign it to
+# @character.user
+@character.user_login = "bob"
 
+# You can then fetch the user's name by doing
+@character.user_name = "Bob Jones"
 
-Copyright (c) 2008 [name of plugin creator], released under the MIT license
+Copyright (c) 2008 [Trotter Cashion], released under the MIT license
